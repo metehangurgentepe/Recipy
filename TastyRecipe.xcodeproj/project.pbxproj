@@ -9,21 +9,40 @@
 /* Begin PBXBuildFile section */
 		6652ABEE2C872BC400CB4D33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652ABED2C872BC400CB4D33 /* AppDelegate.swift */; };
 		6652ABF02C872BC400CB4D33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652ABEF2C872BC400CB4D33 /* SceneDelegate.swift */; };
-		6652ABF22C872BC400CB4D33 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652ABF12C872BC400CB4D33 /* ViewController.swift */; };
-		6652ABF52C872BC400CB4D33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6652ABF32C872BC400CB4D33 /* Main.storyboard */; };
 		6652ABF72C872BC500CB4D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6652ABF62C872BC500CB4D33 /* Assets.xcassets */; };
-		6652ABFA2C872BC500CB4D33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6652ABF82C872BC500CB4D33 /* LaunchScreen.storyboard */; };
+		6652AC0B2C87376F00CB4D33 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652AC0A2C87376F00CB4D33 /* NetworkError.swift */; };
+		6652AC0D2C87378900CB4D33 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652AC0C2C87378900CB4D33 /* HTTPClient.swift */; };
+		6652AC0F2C8738D300CB4D33 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652AC0E2C8738D300CB4D33 /* Constants.swift */; };
+		6652AC122C873A8600CB4D33 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652AC112C873A8600CB4D33 /* SplashVC.swift */; };
+		6652AC152C87515300CB4D33 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6652AC142C87515300CB4D33 /* SnapKit */; };
+		6652AC172C87515300CB4D33 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 6652AC162C87515300CB4D33 /* SnapKit-Dynamic */; };
+		6652AC192C87520C00CB4D33 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652AC182C87520C00CB4D33 /* HomeVC.swift */; };
+		6652AC1C2C8752C100CB4D33 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652AC1B2C8752C100CB4D33 /* TabBarViewController.swift */; };
+		6652AC1E2C8753B700CB4D33 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652AC1D2C8753B700CB4D33 /* HomeViewModel.swift */; };
+		6652AC202C8753C100CB4D33 /* HomeViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652AC1F2C8753C100CB4D33 /* HomeViewModelDelegate.swift */; };
+		6652AC232C8753E300CB4D33 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652AC222C8753E300CB4D33 /* RecipeCell.swift */; };
+		6652AC262C87542C00CB4D33 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6652AC252C87542C00CB4D33 /* Recipe.swift */; };
+		66F416F02C8863F8002396DC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 66F416EF2C8863F8002396DC /* Kingfisher */; };
+		66F416F22C886FDA002396DC /* DeviceFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F416F12C886FDA002396DC /* DeviceFeatures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6652ABEA2C872BC400CB4D33 /* TastyRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TastyRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6652ABED2C872BC400CB4D33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6652ABEF2C872BC400CB4D33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6652ABF12C872BC400CB4D33 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6652ABF42C872BC400CB4D33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6652ABF62C872BC500CB4D33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6652ABF92C872BC500CB4D33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6652ABFB2C872BC500CB4D33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6652AC0A2C87376F00CB4D33 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		6652AC0C2C87378900CB4D33 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		6652AC0E2C8738D300CB4D33 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6652AC112C873A8600CB4D33 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		6652AC182C87520C00CB4D33 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		6652AC1B2C8752C100CB4D33 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		6652AC1D2C8753B700CB4D33 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		6652AC1F2C8753C100CB4D33 /* HomeViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelDelegate.swift; sourceTree = "<group>"; };
+		6652AC222C8753E300CB4D33 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		6652AC252C87542C00CB4D33 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		66F416F12C886FDA002396DC /* DeviceFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFeatures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +50,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66F416F02C8863F8002396DC /* Kingfisher in Frameworks */,
+				6652AC152C87515300CB4D33 /* SnapKit in Frameworks */,
+				6652AC172C87515300CB4D33 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +78,127 @@
 		6652ABEC2C872BC400CB4D33 /* TastyRecipe */ = {
 			isa = PBXGroup;
 			children = (
-				6652ABED2C872BC400CB4D33 /* AppDelegate.swift */,
-				6652ABEF2C872BC400CB4D33 /* SceneDelegate.swift */,
-				6652ABF12C872BC400CB4D33 /* ViewController.swift */,
-				6652ABF32C872BC400CB4D33 /* Main.storyboard */,
-				6652ABF62C872BC500CB4D33 /* Assets.xcassets */,
-				6652ABF82C872BC500CB4D33 /* LaunchScreen.storyboard */,
+				6652AC242C87542500CB4D33 /* Model */,
+				6652AC052C872C4300CB4D33 /* Services */,
+				6652AC042C872C1200CB4D33 /* Localization */,
+				6652AC032C872C0D00CB4D33 /* Helpers */,
+				6652AC022C872C0200CB4D33 /* Screens */,
+				6652AC012C872BD500CB4D33 /* Base */,
 				6652ABFB2C872BC500CB4D33 /* Info.plist */,
 			);
 			path = TastyRecipe;
+			sourceTree = "<group>";
+		};
+		6652AC012C872BD500CB4D33 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				6652ABF62C872BC500CB4D33 /* Assets.xcassets */,
+				6652ABED2C872BC400CB4D33 /* AppDelegate.swift */,
+				6652ABEF2C872BC400CB4D33 /* SceneDelegate.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		6652AC022C872C0200CB4D33 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				6652AC092C872DBA00CB4D33 /* CustomViews */,
+				6652AC102C873A6600CB4D33 /* Splash */,
+				6652AC082C872DAF00CB4D33 /* RecipeDetail */,
+				6652AC072C872CBF00CB4D33 /* Home */,
+				6652AC062C872CB900CB4D33 /* Onboarding */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		6652AC032C872C0D00CB4D33 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6652AC0A2C87376F00CB4D33 /* NetworkError.swift */,
+				6652AC0E2C8738D300CB4D33 /* Constants.swift */,
+				66F416F12C886FDA002396DC /* DeviceFeatures.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6652AC042C872C1200CB4D33 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		6652AC052C872C4300CB4D33 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6652AC0C2C87378900CB4D33 /* HTTPClient.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6652AC062C872CB900CB4D33 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		6652AC072C872CBF00CB4D33 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6652AC212C8753CB00CB4D33 /* Cell */,
+				6652AC182C87520C00CB4D33 /* HomeVC.swift */,
+				6652AC1D2C8753B700CB4D33 /* HomeViewModel.swift */,
+				6652AC1F2C8753C100CB4D33 /* HomeViewModelDelegate.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6652AC082C872DAF00CB4D33 /* RecipeDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RecipeDetail;
+			sourceTree = "<group>";
+		};
+		6652AC092C872DBA00CB4D33 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				6652AC1A2C8752AA00CB4D33 /* TabBar */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		6652AC102C873A6600CB4D33 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				6652AC112C873A8600CB4D33 /* SplashVC.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		6652AC1A2C8752AA00CB4D33 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				6652AC1B2C8752C100CB4D33 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		6652AC212C8753CB00CB4D33 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6652AC222C8753E300CB4D33 /* RecipeCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6652AC242C87542500CB4D33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6652AC252C87542C00CB4D33 /* Recipe.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +217,11 @@
 			dependencies = (
 			);
 			name = TastyRecipe;
+			packageProductDependencies = (
+				6652AC142C87515300CB4D33 /* SnapKit */,
+				6652AC162C87515300CB4D33 /* SnapKit-Dynamic */,
+				66F416EF2C8863F8002396DC /* Kingfisher */,
+			);
 			productName = TastyRecipe;
 			productReference = 6652ABEA2C872BC400CB4D33 /* TastyRecipe.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +250,10 @@
 				Base,
 			);
 			mainGroup = 6652ABE12C872BC400CB4D33;
+			packageReferences = (
+				6652AC132C87515300CB4D33 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				66F416EE2C8863F8002396DC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 6652ABEB2C872BC400CB4D33 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,9 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6652ABFA2C872BC500CB4D33 /* LaunchScreen.storyboard in Resources */,
 				6652ABF72C872BC500CB4D33 /* Assets.xcassets in Resources */,
-				6652ABF52C872BC400CB4D33 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,32 +279,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6652ABF22C872BC400CB4D33 /* ViewController.swift in Sources */,
+				6652AC1C2C8752C100CB4D33 /* TabBarViewController.swift in Sources */,
+				6652AC1E2C8753B700CB4D33 /* HomeViewModel.swift in Sources */,
+				66F416F22C886FDA002396DC /* DeviceFeatures.swift in Sources */,
+				6652AC0D2C87378900CB4D33 /* HTTPClient.swift in Sources */,
+				6652AC262C87542C00CB4D33 /* Recipe.swift in Sources */,
+				6652AC192C87520C00CB4D33 /* HomeVC.swift in Sources */,
+				6652AC0B2C87376F00CB4D33 /* NetworkError.swift in Sources */,
 				6652ABEE2C872BC400CB4D33 /* AppDelegate.swift in Sources */,
+				6652AC232C8753E300CB4D33 /* RecipeCell.swift in Sources */,
 				6652ABF02C872BC400CB4D33 /* SceneDelegate.swift in Sources */,
+				6652AC0F2C8738D300CB4D33 /* Constants.swift in Sources */,
+				6652AC202C8753C100CB4D33 /* HomeViewModelDelegate.swift in Sources */,
+				6652AC122C873A8600CB4D33 /* SplashVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		6652ABF32C872BC400CB4D33 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6652ABF42C872BC400CB4D33 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		6652ABF82C872BC500CB4D33 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6652ABF92C872BC500CB4D33 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6652ABFC2C872BC500CB4D33 /* Debug */ = {
@@ -297,9 +429,9 @@
 				INFOPLIST_FILE = TastyRecipe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,9 +457,9 @@
 				INFOPLIST_FILE = TastyRecipe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -363,6 +495,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6652AC132C87515300CB4D33 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		66F416EE2C8863F8002396DC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6652AC142C87515300CB4D33 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6652AC132C87515300CB4D33 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		6652AC162C87515300CB4D33 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6652AC132C87515300CB4D33 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+		66F416EF2C8863F8002396DC /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66F416EE2C8863F8002396DC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6652ABE22C872BC400CB4D33 /* Project object */;
 }
