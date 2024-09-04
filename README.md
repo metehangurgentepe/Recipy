@@ -1,2 +1,0 @@
-# Recipy
-Recipe app 
