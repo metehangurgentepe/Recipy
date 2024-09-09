@@ -8,10 +8,10 @@
 import Foundation
 
 struct RecipeResponse: Codable, Hashable {
-    let results: [Recipe]
-    let offset: Int
-    let number: Int
-    let totalResults: Int
+    var results: [Recipe]
+    var offset: Int
+    var number: Int
+    var totalResults: Int
     
     static func == (lhs: RecipeResponse, rhs: RecipeResponse) -> Bool {
         return lhs.results == rhs.results &&
@@ -22,8 +22,8 @@ struct RecipeResponse: Codable, Hashable {
 }
 
 struct Recipe: Codable, Hashable {
-    let id: Int
-    let title: String
-    let image: String
-    let imageType: String
+    var id: Int
+    var title: String
+    var image: String
+    var imageType: String
 }

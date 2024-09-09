@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>top-level-items</key>
+	<array>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>46</string>
+					<key>EndingLineNumber</key>
+					<string>22</string>
+					<key>StartingColumnNumber</key>
+					<string>46</string>
+					<key>StartingLineNumber</key>
+					<string>22</string>
+					<key>Timestamp</key>
+					<string>747223891.420998</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>TastyRecipe/Screens/CustomViews/Button/BookmarkButton.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string></string>
+				<key>leading</key>
+				<string>    
+    private func configure() {
+        let image = UIImage(named: "bookmark")</string>
+				<key>trailing</key>
+				<string>
+        
+        layer.cornerRadius = frame.size.width / 2
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingLineNumber</key>
+					<string>82</string>
+					<key>StartingLineNumber</key>
+					<string>82</string>
+					<key>Timestamp</key>
+					<string>747184903.954525</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>TastyRecipe/Screens/CustomViews/Home/HomeSearchBar.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string></string>
+				<key>leading</key>
+				<string>    }
+}
+</string>
+				<key>trailing</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>50</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>49</string>
+					<key>Timestamp</key>
+					<string>747319441.375857</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>TastyRecipe/Features/RecipeDetail/Cell/IngredientTableViewCell.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>        ingredientNameLabel.text = ingredient.originalName!
+</string>
+				<key>leading</key>
+				<string>    
+    func configure(ingredient: ExtendedIngredient) {
+</string>
+				<key>trailing</key>
+				<string>        amountLabel.text = "\(ingredient.amount!) \(ingredient.unit!)"
+    }
+    
+</string>
+			</dict>
+			<key>title</key>
+			<string>force unwrap</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>62</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>61</string>
+					<key>Timestamp</key>
+					<string>747561339.8996871</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>TastyRecipe/Features/Search/SearchVC.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>        layout.itemSize = CGSize(width: (ScreenSize.width - 30) / 2, height: 300)
+</string>
+				<key>leading</key>
+				<string>        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+</string>
+				<key>trailing</key>
+				<string>        
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>266</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>265</string>
+					<key>Timestamp</key>
+					<string>747563299.830795</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>TastyRecipe/Features/Home/HomeVC.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>        searchVC.useQuery(query)
+</string>
+				<key>leading</key>
+				<string>extension HomeVC: HomeSearchBarDelegate {
+    func didTapReturn(query: String?) {
+</string>
+				<key>trailing</key>
+				<string>        self.searchDelegate?.didTapReturnSearch(with: query)
+    }
+}
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+	</array>
+</dict>
+</plist>

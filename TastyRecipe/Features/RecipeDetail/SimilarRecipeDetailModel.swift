@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct SimilarRecipeDetailModel: Codable {
+    let id: Int
+    let title: String
+}

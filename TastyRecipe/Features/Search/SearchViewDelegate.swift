@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol SearchViewDelegate: AnyObject {
+    func refreshCollectionView(recipe: [SearchRecipeResult])
+    func showError(_ error: Error)
+}

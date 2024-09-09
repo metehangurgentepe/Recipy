@@ -19,10 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: scene)
+        window?.backgroundColor = ThemeColor.bgColor
         
         let navController = UINavigationController(rootViewController: SplashVC())
         
         window?.rootViewController = navController
+        window?.overrideUserInterfaceStyle = .dark
         window?.makeKeyAndVisible()
     }
     

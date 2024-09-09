@@ -79,8 +79,8 @@ extension CommunityTableViewCell: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movieId = recipesArr[indexPath.row].id
-        delegate?.didSelectMovie(movieId: movieId)
+        let id = recipesArr[indexPath.row].id
+        delegate?.didSelectRecipe(recipeId: id)
     }
 }
 

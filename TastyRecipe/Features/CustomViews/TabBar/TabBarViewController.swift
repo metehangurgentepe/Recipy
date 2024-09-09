@@ -12,11 +12,17 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let appearance = tabBar.standardAppearance
+        appearance.shadowImage = nil
+        appearance.shadowColor = nil
+        tabBar.standardAppearance = appearance;
+        
         self.viewControllers = TabBarModel.createTabBarItems().map{ $0.viewController }
         setupTabs()
         self.tabBar.tintColor = .white
-        self.tabBar.isTranslucent = true
-        UITabBar.appearance().barTintColor = .clear
+        self.tabBar.isTranslucent = false
+        UITabBar.appearance().barTintColor = ThemeColor.lightBackgroundColor
+        tabBar.backgroundColor = ThemeColor.lightBackgroundColor
     }
     
     private func setupTabs() {

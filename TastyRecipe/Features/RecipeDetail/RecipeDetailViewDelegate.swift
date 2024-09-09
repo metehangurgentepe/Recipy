@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+protocol RecipeDetailViewDelegate: AnyObject {
+    func getDetail(recipe: RecipeDetailModel)
+    func getSimilarRecipes(recipes: [RecipeDetailModel])
+    func showError(_ error: Error)
+    func didSelectRecipe(recipeId: Int)
+}

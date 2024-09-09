@@ -87,22 +87,22 @@ class WeeknightCollectionViewCell: UICollectionViewCell {
         recipeImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.width.equalTo(contentView.snp.width).multipliedBy(0.8) // contentView'in genişliğinin %80'i
-            make.height.equalTo(recipeImageView.snp.width).multipliedBy(0.75) // Genişliğin %75'i
+            make.width.equalTo(contentView.snp.width).multipliedBy(0.8)
+            make.height.equalTo(recipeImageView.snp.width).multipliedBy(0.75)
         }
         
         backgroundView1.snp.makeConstraints { make in
             make.centerX.equalTo(recipeImageView.snp.leading)
             make.centerY.equalTo(recipeImageView.snp.bottom)
-            make.width.equalTo(contentView.snp.width).multipliedBy(0.8) // contentView'in genişliğinin %80'i
-            make.height.equalTo(recipeImageView.snp.width).multipliedBy(0.75) // Genişliğin %75'i
+            make.width.equalTo(contentView.snp.width).multipliedBy(0.8)
+            make.height.equalTo(recipeImageView.snp.width).multipliedBy(0.75)
         }
         
         backgroundView2.snp.makeConstraints { make in
             make.centerX.equalTo(recipeImageView.snp.trailing)
             make.centerY.equalTo(recipeImageView.snp.bottom)
-            make.width.equalTo(contentView.snp.width).multipliedBy(0.8) // contentView'in genişliğinin %80'i
-            make.height.equalTo(recipeImageView.snp.width).multipliedBy(0.75) // Genişliğin %75'i
+            make.width.equalTo(contentView.snp.width).multipliedBy(0.8)
+            make.height.equalTo(recipeImageView.snp.width).multipliedBy(0.75)
         }
         
         recipeCountView.snp.makeConstraints { make in

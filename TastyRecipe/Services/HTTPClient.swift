@@ -33,7 +33,9 @@ enum URLPath {
     case randomRecipe
     case ingredientSearch
     case searchAllFood
+    case similarRecipe(String)
     case detailRecipe(String)
+    case tastySearch
     
     var name: String {
         switch self {
@@ -49,6 +51,10 @@ enum URLPath {
             "/food/search"
         case .detailRecipe(let id):
             "/recipes/\(id)/information"
+        case .similarRecipe(let id):
+            "/recipes/\(id)/similar"
+        case .tastySearch:
+            "/recipes/list"
         }
     }
 }
@@ -76,6 +82,7 @@ struct HTTPClient {
     func load<T: Codable>(_ resource: Resource<T>) async throws -> T {
         
         var request = URLRequest(url: resource.url)
+        request.addValue("Accept", forHTTPHeaderField: "*/*")
         
         // Set HTTP method and body if needed
         switch resource.method {

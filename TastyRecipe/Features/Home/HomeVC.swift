@@ -8,11 +8,19 @@
 import UIKit
 
 protocol HomeVCDelegate: AnyObject {
-    func didSelectMovie(movieId: Int)
+    func didSelectRecipe(recipeId: Int)
 }
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, SearchVCDelegate {
+    func didTapReturnSearch(with query: String?) {
+        print("query")
+    }
+    
+    
+    
     let viewModel: HomeViewModel
+    let searchVC = SearchVC(viewModel: SearchViewModel(httpClient: HTTPClient(session: .shared)))
+    let searchBar = HomeSearchBar(frame: .zero)
     
     var tableView = UITableView(frame: .zero, style: .grouped)
     
@@ -21,6 +29,8 @@ class HomeVC: UIViewController {
     var trendingRecipes = [Recipe]()
     var popularRecipes = [Recipe]()
     var shuffledAppetizers = [Recipe]()
+    
+    weak var searchDelegate: SearchVCDelegate?
     
     
     enum Section: CaseIterable {
@@ -82,24 +92,51 @@ class HomeVC: UIViewController {
         setupTableView()
     }
     
-    func setupHomeTitleView() {
-        let chatbotImage = UIImage(named: "chatbot_image")
-        let resizedImage = chatbotImage?.resizeImage(targetSize: CGSize(width: 30, height: 30))
-        
+    private func createButton(withImageName imageName: String, action: Selector) -> UIButton {
         let button = UIButton(type: .custom)
-        button.setImage(resizedImage, for: .normal)
+        let image = UIImage(named: imageName)?.resizeImage(targetSize: CGSize(width: 30, height: 30))
+        button.setImage(image, for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        
-        let barButtonItem = UIBarButtonItem(customView: button)
+        button.addTarget(self, action: action, for: .touchUpInside)
+        return button
+    }
+
+    private func createBarButtonItem(withButton button: UIButton) -> UIBarButtonItem {
+        return UIBarButtonItem(customView: button)
+    }
+
+    func setupHomeTitleView() {
+        let button = createButton(withImageName: "chatbot_image", action: #selector(buttonTapped))
+        let barButtonItem = createBarButtonItem(withButton: button)
         self.navigationItem.leftBarButtonItem = barButtonItem
-        
-        let searchBar = HomeSearchBar(frame: .zero)
-        
+
         searchBar.backgroundColor = ThemeColor.bgColor
         searchBar.layer.backgroundColor = ThemeColor.bgColor.cgColor
-        
+        searchBar.searchBarDelegate = self
+
         self.navigationItem.titleView = searchBar
+    }
+
+    func navigate() {
+        UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.searchVC.delegate = self
+            self.view.addSubview(self.searchVC.view)
+        }, completion: nil)
+
+        let button = createButton(withImageName: "exit", action: #selector(exitButtonTapped))
+        self.navigationItem.leftBarButtonItem = createBarButtonItem(withButton: button)
+    }
+
+    @objc func exitButtonTapped() {
+        searchVC.view.removeFromSuperview()
+        
+        let button = createButton(withImageName: "chatbot_image", action: #selector(buttonTapped))
+        let barButtonItem = createBarButtonItem(withButton: button)
+        self.navigationItem.leftBarButtonItem = barButtonItem
+        self.navigationItem.titleView?.resignFirstResponder()
+        searchBar.searchTextField.text = ""
+        
+        searchVC.exitButtonTapped()
     }
     
     func setupHeaderView() {
@@ -145,8 +182,9 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: HomeVCDelegate {
-    func didSelectMovie(movieId: Int) {
-        print("navigate")
+    func didSelectRecipe(recipeId: Int) {
+        let vc = RecipeDetailVC(viewModel: RecipeDetailViewModel(httpClient: .init(session: .shared), id: recipeId), id: recipeId)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -157,7 +195,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-//        case 0:
             
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: WeeknightTableViewCell.identifier, for: indexPath) as! WeeknightTableViewCell
@@ -185,8 +222,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
-    
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         Section.allCases.count
@@ -226,6 +261,13 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
 }
 
+extension HomeVC: HomeSearchBarDelegate {
+    func didTapReturn(query: String?) {
+        searchVC.useQuery(query)
+        self.searchDelegate?.didTapReturnSearch(with: query)
+    }
+}
+
 extension HomeVC: HomeViewDelegate {
     func showError(_ error: Error) {
         DispatchQueue.main.async{
@@ -241,7 +283,6 @@ extension HomeVC: HomeViewDelegate {
     func refreshCollectionView(recipes: [Recipe]) {
         DispatchQueue.main.async{ [weak self] in
             guard let self = self else { return }
-            print(recipes)
             
             self.weeknightFavRecipes = recipes
             self.community = recipes
@@ -254,4 +295,31 @@ extension HomeVC: HomeViewDelegate {
     }
 }
 
+//struct ProductViewController_Previews: PreviewProvider {
+//  static var previews: some View {
+//    ViewControllerPreview {
+//        HomeVC(viewModel: HomeViewModel(httpClient: .init(session: .shared)))
+//    }
+//  }
+//}
+
+import Foundation
+import SwiftUI
+
+struct ViewControllerPreview: UIViewControllerRepresentable {
+  
+  var viewControllerBuilder: () -> UIViewController
+  
+  init(_ viewControllerBuilder: @escaping () -> UIViewController) {
+    self.viewControllerBuilder = viewControllerBuilder
+  }
+  
+  func makeUIViewController(context: Context) -> some UIViewController {
+    viewControllerBuilder()
+  }
+  
+  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+   // Nothing to do here
+  }
+}
 
