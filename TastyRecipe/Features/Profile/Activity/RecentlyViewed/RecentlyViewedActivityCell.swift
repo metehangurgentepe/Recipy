@@ -1,13 +1,13 @@
 //
-//  ActivityCell.swift
+//  RecentlyViewedActivityCell.swift
 //  TastyRecipe
 //
-//  Created by Metehan Gürgentepe on 11.09.2024.
+//  Created by Metehan Gürgentepe on 12.09.2024.
 //
 
 import UIKit
 
-class ActivityCell: UITableViewCell {
+class RecentlyViewedActivityCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
