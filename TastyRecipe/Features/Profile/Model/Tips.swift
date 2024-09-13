@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Tips {
+    var comment: String
+    var count: Int
+    var recipeTitle: String
+    var date: String
+}

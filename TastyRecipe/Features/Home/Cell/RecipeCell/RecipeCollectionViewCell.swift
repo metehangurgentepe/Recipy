@@ -11,20 +11,25 @@ import Kingfisher
 
 class RecipeCollectionViewCell: UICollectionViewCell {
     static let identifier = "RecipeCollectionCell"
-    
+    var recipe: Recipe?
+        
     private let recipeImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 10
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 2
         imageView.layer.masksToBounds = true
         return imageView
     }()
     
     private let titleLabel: UILabel = {
         let lbl = UILabel()
-        lbl.font = .preferredFont(forTextStyle: .headline).withSize(10)
+        lbl.font = .preferredFont(forTextStyle: .headline).withSize(14)
         lbl.textColor = .white
-        lbl.numberOfLines = 3
+        lbl.numberOfLines = 0
+        lbl.textAlignment = .left
+        lbl.baselineAdjustment = .alignBaselines
+        lbl.lineBreakMode = .byTruncatingTail
+        lbl.sizeToFit()
         return lbl
     }()
     
@@ -48,7 +53,6 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(cookingTimeLabel)
         contentView.addSubview(bookmarkButton)
         contentView.backgroundColor = ThemeColor.bgColor
-
     }
     
     required init?(coder: NSCoder) {
@@ -58,7 +62,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         recipeImageView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.height.equalTo(130)
+            make.height.equalTo(110)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
@@ -74,7 +78,8 @@ class RecipeCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(cookingTimeLabel.snp.bottom).offset(4)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.lessThanOrEqualTo(60)
+            make.width.lessThanOrEqualTo(contentView.snp.width)
         }
         
         bookmarkButton.snp.makeConstraints { make in
@@ -84,12 +89,49 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    fileprivate func checkIsBookmarked() {
+        if let bookmarkedRecipes = UserDefaultsManager.shared.getCodable(forKey: "recipe", type: [Recipe].self) {
+            bookmarkedRecipes.map { recipe in
+                if recipe.id == self.recipe?.id{
+                    bookmarkButton.isSelected = true
+                } else {
+                    bookmarkButton.isSelected = false
+                }
+            }
+        }
+    }
+    
     func configure(recipe: Recipe) {
+        self.recipe = recipe
         let imageURL = URL(string: recipe.image)
         recipeImageView.kf.setImage(with: imageURL)
         titleLabel.text = recipe.title
         cookingTimeLabel.text = "2 hr 0 min"
+        
+        checkIsBookmarked()
+        
+        bookmarkButton.addTarget(self, action: #selector(bookmarkedButtonTapped), for: .touchUpInside)
         contentView.layoutIfNeeded()
-
+    }
+    
+    @objc func bookmarkedButtonTapped() {
+        guard let recipe else { return }
+        
+        if var arr = UserDefaultsManager.shared.getCodable(forKey: "recipe", type: [Recipe].self){
+            for i in 0..<arr.count {
+                guard arr.count > 0 else { break }
+                
+                if arr[i].id == self.recipe?.id {
+                    arr.remove(at: i)
+                    UserDefaultsManager.shared.saveCodable(value: arr, forKey: "recipe")
+                    bookmarkButton.isSelected = false
+                    return
+                }
+            }
+            
+            arr.append(recipe)
+            UserDefaultsManager.shared.saveCodable(value: arr, forKey: "recipe")
+            bookmarkButton.isSelected = true
+        }
     }
 }

@@ -140,13 +140,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>62</string>
+					<string>56</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>61</string>
+					<string>55</string>
 					<key>Timestamp</key>
-					<string>747561339.8996871</string>
+					<string>747581623.630041</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -185,13 +185,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>266</string>
+					<string>318</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>265</string>
+					<string>317</string>
 					<key>Timestamp</key>
-					<string>747563299.830795</string>
+					<string>747914456.417688</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -207,16 +207,160 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>        searchVC.useQuery(query)
+				<string>    func showTableView() {
 </string>
 				<key>leading</key>
-				<string>extension HomeVC: HomeSearchBarDelegate {
-    func didTapReturn(query: String?) {
+				<string>
+extension HomeVC: HomeSearchBarDelegate {
 </string>
 				<key>trailing</key>
-				<string>        self.searchDelegate?.didTapReturnSearch(with: query)
+				<string>        searchVC.exitButtonTapped()
     }
-}
+    
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>308</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>300</string>
+					<key>Timestamp</key>
+					<string>747914421.463123</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>TastyRecipe/Features/Home/HomeVC.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>        case 5:
+            let numberOfItems = shuffledAppetizers.count
+            let itemsPerRow: CGFloat = 2
+            let rows = ceil(CGFloat(numberOfItems) / itemsPerRow)
+            
+            let itemHeight: CGFloat = 200
+            let totalHeight = max(rows * itemHeight, 400)
+            return totalHeight
+</string>
+				<key>leading</key>
+				<string>            return 300
+            
+</string>
+				<key>trailing</key>
+				<string>            
+            
+        default:
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>193</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>192</string>
+					<key>Timestamp</key>
+					<string>747906923.0126899</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>TastyRecipe/Features/Home/HomeVC.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>    func loadMoreData() {
+</string>
+				<key>leading</key>
+				<string>
+extension HomeVC: HomeVCDelegate {
+</string>
+				<key>trailing</key>
+				<string>        numberOfRecipe += 4
+        
+        Task {
+</string>
+			</dict>
+			<key>title</key>
+			<string>aşağı doğru indikçe bir hata oluyor.</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>45</string>
+					<key>StartingColumnNumber</key>
+					<string>83</string>
+					<key>StartingLineNumber</key>
+					<string>44</string>
+					<key>Timestamp</key>
+					<string>747864942.207155</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>TastyRecipe/Features/RecipeDetail/RecipeDetailViewModel.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>
+</string>
+				<key>leading</key>
+				<string>            var similarRecipes: [RecipeDetailModel] = []
+            
+            try await withThrowingTaskGroup(of: RecipeDetailModel?.self) { group in</string>
+				<key>trailing</key>
+				<string>                for id in idArr {
+                    group.addTask {
+                        return await self.fetchRecipeDetail(for: id.id)
 </string>
 			</dict>
 			<key>type</key>

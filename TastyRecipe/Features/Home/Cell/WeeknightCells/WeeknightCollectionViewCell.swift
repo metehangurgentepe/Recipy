@@ -57,9 +57,13 @@ class WeeknightCollectionViewCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let lbl = UILabel()
-        lbl.font = .preferredFont(forTextStyle: .headline).withSize(10)
+        lbl.font = .preferredFont(forTextStyle: .headline).withSize(14)
         lbl.textColor = .white
-        lbl.numberOfLines = 3
+        lbl.numberOfLines = 0
+        lbl.textAlignment = .left
+        lbl.baselineAdjustment = .alignBaselines
+        lbl.lineBreakMode = .byTruncatingTail
+        lbl.sizeToFit()
         return lbl
     }()
     
@@ -88,21 +92,21 @@ class WeeknightCollectionViewCell: UICollectionViewCell {
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
             make.width.equalTo(contentView.snp.width).multipliedBy(0.8)
-            make.height.equalTo(recipeImageView.snp.width).multipliedBy(0.75)
+            make.height.equalTo(recipeImageView.snp.width)
         }
         
         backgroundView1.snp.makeConstraints { make in
             make.centerX.equalTo(recipeImageView.snp.leading)
             make.centerY.equalTo(recipeImageView.snp.bottom)
             make.width.equalTo(contentView.snp.width).multipliedBy(0.8)
-            make.height.equalTo(recipeImageView.snp.width).multipliedBy(0.75)
+            make.height.equalTo(recipeImageView.snp.width)
         }
         
         backgroundView2.snp.makeConstraints { make in
             make.centerX.equalTo(recipeImageView.snp.trailing)
             make.centerY.equalTo(recipeImageView.snp.bottom)
             make.width.equalTo(contentView.snp.width).multipliedBy(0.8)
-            make.height.equalTo(recipeImageView.snp.width).multipliedBy(0.75)
+            make.height.equalTo(recipeImageView.snp.width)
         }
         
         recipeCountView.snp.makeConstraints { make in
@@ -121,7 +125,8 @@ class WeeknightCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(recipeImageView.snp.bottom).offset(4)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.height.equalTo(30)
+            make.height.lessThanOrEqualTo(50)
+            make.width.lessThanOrEqualTo(contentView.snp.width)
         }
     }
     

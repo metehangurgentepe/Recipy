@@ -10,4 +10,5 @@ import Foundation
 protocol HomeViewDelegate: AnyObject {
     func refreshCollectionView(recipes: [Recipe])
     func showError(_ error: Error)
+    func refreshRecentCollectionView(recipes: [Recipe])
 }

@@ -9,18 +9,16 @@ import UIKit
 
 protocol HomeVCDelegate: AnyObject {
     func didSelectRecipe(recipeId: Int)
+    func loadMoreData()
 }
 
-class HomeVC: UIViewController, SearchVCDelegate {
-    func didTapReturnSearch(with query: String?) {
-        print("query")
-    }
-    
-    
-    
+class HomeVC: UIViewController {
     let viewModel: HomeViewModel
-    let searchVC = SearchVC(viewModel: SearchViewModel(httpClient: HTTPClient(session: .shared)))
     let searchBar = HomeSearchBar(frame: .zero)
+    
+    lazy var searchVC: SearchVC = {
+        return SearchVC(viewModel: SearchViewModel(httpClient: HTTPClient(session: .shared)), homeVC: self)
+    }()
     
     var tableView = UITableView(frame: .zero, style: .grouped)
     
@@ -29,8 +27,7 @@ class HomeVC: UIViewController, SearchVCDelegate {
     var trendingRecipes = [Recipe]()
     var popularRecipes = [Recipe]()
     var shuffledAppetizers = [Recipe]()
-    
-    weak var searchDelegate: SearchVCDelegate?
+    var numberOfRecipe: Int = 10
     
     
     enum Section: CaseIterable {
@@ -39,6 +36,7 @@ class HomeVC: UIViewController, SearchVCDelegate {
         case trending
         case popular
         case shuffledAppetizers
+        case recents
         
         var name: String {
             switch self {
@@ -52,6 +50,8 @@ class HomeVC: UIViewController, SearchVCDelegate {
                 "Popular Recipes This Week"
             case .shuffledAppetizers:
                 "Shuffled Appetizers"
+            case .recents:
+                "Recents"
             }
         }
     }
@@ -75,9 +75,8 @@ class HomeVC: UIViewController, SearchVCDelegate {
         design()
         
         Task{
-            await viewModel.getRecipe(query: nil)
+            await viewModel.getRecipe(query: nil, numberOfItems: numberOfRecipe)
         }
-        
     }
     
     func design() {
@@ -88,7 +87,6 @@ class HomeVC: UIViewController, SearchVCDelegate {
         navigationController?.navigationBar.barTintColor = ThemeColor.bgColor
         
         setupHomeTitleView()
-        setupHeaderView()
         setupTableView()
     }
     
@@ -100,33 +98,32 @@ class HomeVC: UIViewController, SearchVCDelegate {
         button.addTarget(self, action: action, for: .touchUpInside)
         return button
     }
-
+    
     private func createBarButtonItem(withButton button: UIButton) -> UIBarButtonItem {
         return UIBarButtonItem(customView: button)
     }
-
+    
     func setupHomeTitleView() {
         let button = createButton(withImageName: "chatbot_image", action: #selector(buttonTapped))
         let barButtonItem = createBarButtonItem(withButton: button)
         self.navigationItem.leftBarButtonItem = barButtonItem
-
+        
         searchBar.backgroundColor = ThemeColor.bgColor
         searchBar.layer.backgroundColor = ThemeColor.bgColor.cgColor
         searchBar.searchBarDelegate = self
-
+        
         self.navigationItem.titleView = searchBar
     }
-
+    
     func navigate() {
         UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.searchVC.delegate = self
             self.view.addSubview(self.searchVC.view)
         }, completion: nil)
-
+        
         let button = createButton(withImageName: "exit", action: #selector(exitButtonTapped))
         self.navigationItem.leftBarButtonItem = createBarButtonItem(withButton: button)
     }
-
+    
     @objc func exitButtonTapped() {
         searchVC.view.removeFromSuperview()
         
@@ -137,10 +134,6 @@ class HomeVC: UIViewController, SearchVCDelegate {
         searchBar.searchTextField.text = ""
         
         searchVC.exitButtonTapped()
-    }
-    
-    func setupHeaderView() {
-        
     }
     
     func setupTableView() {
@@ -158,8 +151,10 @@ class HomeVC: UIViewController, SearchVCDelegate {
         
         tableView.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         
-        let headerView = TableHeaderView(frame: CGRect(x: 0, y: 0, width: ScreenSize.width, height: ScreenSize.height * 0.6)) 
-            tableView.tableHeaderView = headerView
+        tableView.register(RecentTableViewCell.self, forCellReuseIdentifier: RecentTableViewCell.identifier)
+        
+        let headerView = TableHeaderView(frame: CGRect(x: 0, y: 0, width: ScreenSize.width, height: ScreenSize.height * 0.6))
+        tableView.tableHeaderView = headerView
         
         view.addSubview(tableView)
         
@@ -181,7 +176,33 @@ class HomeVC: UIViewController, SearchVCDelegate {
     }
 }
 
+extension HomeVC: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height - 50 {
+            loadMoreData()
+        }
+    }
+}
+
+
 extension HomeVC: HomeVCDelegate {
+    func loadMoreData() {
+        numberOfRecipe += 4
+        
+        Task {
+            await viewModel.getRecentRecipe(numberOfItems: numberOfRecipe)
+            //            tableView.reloadData()
+        }
+        
+        print(numberOfRecipe, "numberOfRecipe")
+        print(CGFloat((numberOfRecipe / 2) * 50), "height")
+    }
+    
+    
     func didSelectRecipe(recipeId: Int) {
         let vc = RecipeDetailVC(viewModel: RecipeDetailViewModel(httpClient: .init(session: .shared), id: recipeId), id: recipeId)
         self.navigationController?.pushViewController(vc, animated: true)
@@ -214,10 +235,20 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             
             return cell
             
+        case 5:
+            let cell = tableView.dequeueReusableCell(withIdentifier: RecentTableViewCell.identifier, for: indexPath) as! RecentTableViewCell
+            
+            if !shuffledAppetizers.isEmpty {
+                cell.configure(recipes: shuffledAppetizers, delegate: self, addNumberItems: numberOfRecipe)
+            }
+            
+            return cell
+            
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as! CollectionViewTableViewCell
             if !weeknightFavRecipes.isEmpty {
                 cell.configure(recipes: weeknightFavRecipes, delegate: self)
+                cell.backgroundColor = .red
             }
             return cell
         }
@@ -239,39 +270,72 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             return Header(title: Section.allCases[3].name)
         case 4:
             return Header(title: Section.allCases[4].name)
+        case 5:
+            return Header(title: Section.allCases[5].name)
         default:
             return UIView()
         }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        switch section  {
+        case 0:
+            return 10
+        case 1:
+            return 40
+        case 5:
+            return 40
+        default:
+            return 35
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 150
+            return 200
+            
         case 1:
             return 300
+            
+        case 5:
+            let numberOfItems = shuffledAppetizers.count
+            let itemsPerRow: CGFloat = 2
+            let rows = ceil(CGFloat(numberOfItems) / itemsPerRow)
+            
+            let itemHeight: CGFloat = 200
+            let totalHeight = max(rows * itemHeight, 400)
+            return totalHeight
+            
+            
         default:
-            return 180
+            return 200
         }
     }
-
 }
 
 extension HomeVC: HomeSearchBarDelegate {
+    func showTableView() {
+        searchVC.exitButtonTapped()
+    }
+    
     func didTapReturn(query: String?) {
-        searchVC.useQuery(query)
-        self.searchDelegate?.didTapReturnSearch(with: query)
+        searchVC.search(query: query)
     }
 }
 
 extension HomeVC: HomeViewDelegate {
+    func refreshRecentCollectionView(recipes: [Recipe]) {
+        DispatchQueue.main.async{ [weak self] in
+            guard let self = self else { return }
+            
+            self.shuffledAppetizers = recipes
+        }
+    }
+    
     func showError(_ error: Error) {
         DispatchQueue.main.async{
-            let ac = UIAlertController(title: "Error", message: nil, preferredStyle: .alert)
+            let ac = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
             
             ac.addAction(UIAlertAction(title: "Ok", style: .default))
             ac.addAction(UIAlertAction(title: "Cancel", style:  .cancel))
@@ -288,38 +352,37 @@ extension HomeVC: HomeViewDelegate {
             self.community = recipes
             self.trendingRecipes = recipes
             self.popularRecipes = recipes
-            self.shuffledAppetizers = recipes
             
             self.tableView.reloadData()
         }
     }
 }
 
-//struct ProductViewController_Previews: PreviewProvider {
-//  static var previews: some View {
-//    ViewControllerPreview {
-//        HomeVC(viewModel: HomeViewModel(httpClient: .init(session: .shared)))
-//    }
-//  }
-//}
+struct ProductViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        ViewControllerPreview {
+            HomeVC(viewModel: HomeViewModel(httpClient: .init(session: .shared)))
+        }
+    }
+}
 
 import Foundation
 import SwiftUI
 
 struct ViewControllerPreview: UIViewControllerRepresentable {
-  
-  var viewControllerBuilder: () -> UIViewController
-  
-  init(_ viewControllerBuilder: @escaping () -> UIViewController) {
-    self.viewControllerBuilder = viewControllerBuilder
-  }
-  
-  func makeUIViewController(context: Context) -> some UIViewController {
-    viewControllerBuilder()
-  }
-  
-  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-   // Nothing to do here
-  }
+    
+    var viewControllerBuilder: () -> UIViewController
+    
+    init(_ viewControllerBuilder: @escaping () -> UIViewController) {
+        self.viewControllerBuilder = viewControllerBuilder
+    }
+    
+    func makeUIViewController(context: Context) -> some UIViewController {
+        viewControllerBuilder()
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        // Nothing to do here
+    }
 }
 

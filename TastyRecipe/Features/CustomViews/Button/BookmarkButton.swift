@@ -8,7 +8,7 @@
 import UIKit
 
 class BookmarkButton: UIButton {
-    var bookmarked: Bool = false
+    var image = UIImage(named: "bookmark")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,9 +19,14 @@ class BookmarkButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override var isSelected: Bool {
+        didSet{
+            let fillImage = UIImage(named: "bookmark.fill")
+            isSelected ? setImage(fillImage, for: .selected) : setImage(image, for: .normal)
+        }
+    }
+    
     private func configure() {
-        let image = UIImage(named: "bookmark")
-        
         layer.cornerRadius = frame.size.width / 2
         layer.backgroundColor = UIColor.black.cgColor
         clipsToBounds = true
@@ -31,8 +36,6 @@ class BookmarkButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        // Ensure the button layout is updated when needed
         layer.cornerRadius = frame.size.width / 2
     }
-    
 }

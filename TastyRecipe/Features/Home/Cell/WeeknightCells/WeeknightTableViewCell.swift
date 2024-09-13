@@ -15,7 +15,6 @@ class WeeknightTableViewCell: UITableViewCell {
     var title: String?
     private var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
-    
     weak var delegate: HomeVCDelegate?
     
     override func awakeFromNib() {
@@ -37,7 +36,7 @@ class WeeknightTableViewCell: UITableViewCell {
         
         let height = 1170 / 150
         
-        layout.itemSize = CGSize(width: 780 / height, height: 150)
+        layout.itemSize = CGSize(width: 780 / height, height: 250)
         layout.minimumLineSpacing = 10
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)

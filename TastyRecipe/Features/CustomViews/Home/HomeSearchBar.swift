@@ -10,6 +10,7 @@ import UIKit
 protocol HomeSearchBarDelegate: AnyObject{
     func navigate()
     func didTapReturn(query: String?)
+    func showTableView()
 }
 
 class HomeSearchBar: UISearchBar, UITextFieldDelegate {
@@ -119,4 +120,10 @@ class HomeSearchBar: UISearchBar, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         searchTextField.leftView = configureStackView()
     }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        searchBarDelegate?.showTableView()
+        return true
+    }
+    
 }

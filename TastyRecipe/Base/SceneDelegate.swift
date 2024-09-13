@@ -11,6 +11,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
+    fileprivate func createUserDefaultsArray() {
+        if let arr = UserDefaultsManager.shared.getCodable(forKey: "recipe", type: [Recipe].self) {
+            print(arr)
+        } else {
+            var arr : [Recipe] = []
+            UserDefaultsManager.shared.saveCodable(value: arr, forKey: "recipe")
+        }
+    }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -26,6 +34,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navController
         window?.overrideUserInterfaceStyle = .dark
         window?.makeKeyAndVisible()
+        
+        createUserDefaultsArray()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

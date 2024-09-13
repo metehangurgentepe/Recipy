@@ -8,13 +8,8 @@
 import UIKit
 import SwiftUI
 
-protocol SearchVCDelegate: AnyObject {
-    func didTapReturnSearch(with query: String?)
-}
-
 
 class SearchVC: UIViewController, UIScrollViewDelegate {
-    
     enum Section: CaseIterable {
         case popular
         case difficulty
@@ -43,18 +38,17 @@ class SearchVC: UIViewController, UIScrollViewDelegate {
     
     var collectionView: UICollectionView!
     
-    let tableView = UITableView(frame: .zero, style: .grouped)
+    var tableView = UITableView(frame: .zero, style: .grouped)
     let viewModel: SearchViewModel
     var isSearchActive = false
     var searchedRecipes = [SearchRecipeResult]()
     let labelStackView = UIStackView()
     var selectedTags: String?
-    weak var delegate: SearchVCDelegate?
-
+    let homeVC: HomeVC
     
     let label = UILabel()
     
-    init(viewModel: SearchViewModel) {
+    init(viewModel: SearchViewModel, homeVC: HomeVC) {
         self.viewModel = viewModel
         
         let layout = UICollectionViewFlowLayout()
@@ -63,25 +57,16 @@ class SearchVC: UIViewController, UIScrollViewDelegate {
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
+        self.homeVC = homeVC
+        
         super.init(nibName: nil, bundle: nil)
         
         self.viewModel.delegate = self
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    func useQuery(_ query: String?) {
-        setupCollectionView()
-        searchButtonPressed()
-        Task{
-            await viewModel.search(query: query ?? "", tags: selectedTags ?? nil)
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
     }
     
     override func viewDidLoad() {
@@ -93,6 +78,21 @@ class SearchVC: UIViewController, UIScrollViewDelegate {
         collectionView.isHidden = true
         collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
     }
+    
+    @objc func showTableView() {
+        collectionView.isHidden = true
+        tableView.isHidden = false
+    }
+    
+    @objc func handleQueryNotification(_ notification: Notification) {
+        if let query = notification.object as? String {
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     
     private func setupTableView() {
         tableView.delegate = self
@@ -201,6 +201,17 @@ class SearchVC: UIViewController, UIScrollViewDelegate {
         tableView.isHidden = false
         labelStackView.removeFromSuperview()
         selectedTags = nil
+    }
+    
+    func search(query: String?) {
+        setupCollectionView()
+        searchButtonPressed()
+        Task{
+            await viewModel.search(query: query ?? "", tags: selectedTags ?? nil)
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
 }
 
@@ -343,14 +354,14 @@ extension SearchVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
-extension SearchVC: SearchVCDelegate {
-    func didTapReturnSearch(with query: String?) {
-        searchButtonPressed()
-        Task{
-            await viewModel.search(query: query ?? "", tags: selectedTags ?? nil)
-        }
-    }
-}
+//extension SearchVC: SearchVCDelegate {
+//    func didTapReturnSearch(with query: String?) {
+//        searchButtonPressed()
+//        Task{
+//            await viewModel.search(query: query ?? "", tags: selectedTags ?? nil)
+//        }
+//    }
+//}
 
 extension SearchVC: SearchViewDelegate {
     func didSelect() {

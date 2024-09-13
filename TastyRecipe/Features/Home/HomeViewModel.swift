@@ -18,24 +18,43 @@ class HomeViewModel {
         self.httpClient = httpClient
     }
     
-    func getRecipe(query: String?) async{
-        var queryItems: [URLQueryItem]?
+    func getRecipe(query: String?, numberOfItems: Int?) async{
+        var queryItems: [URLQueryItem] =  [
+            URLQueryItem(name: "offset", value: "0"),
+            URLQueryItem(name: "number", value: "\(numberOfItems ?? 0)")
+        ]
         
         if let query = query {
-            queryItems = [
-                URLQueryItem(name: "query", value: query)
-            ]
+            queryItems.append(URLQueryItem(name: "query", value: query))
         }
         
         let url = URL(string: Constants.baseURL)!
         let headers = Constants.authApiKey
-        let resource  = Resource(url: url, path: .searchRecipe, method: .get(queryItems ?? []), headers: headers, modelType: RecipeResponse.self)
+        let resource  = Resource(url: url, path: .searchRecipe, method: .get(queryItems), headers: headers, modelType: RecipeResponse.self)
         
         do{
             let recipes = try await httpClient.load(resource)
             self.recipes = recipes.results
-//            self.recipes = []
             self.delegate?.refreshCollectionView(recipes: self.recipes)
+        } catch {
+            self.delegate?.showError(error)
+        }
+    }
+    
+    func getRecentRecipe(numberOfItems: Int?) async {
+        var queryItems: [URLQueryItem] =  [
+            URLQueryItem(name: "offset", value: "0"),
+            URLQueryItem(name: "number", value: "\(numberOfItems ?? 0)")
+        ]
+        
+        let url = URL(string: Constants.baseURL)!
+        let headers = Constants.authApiKey
+        let resource  = Resource(url: url, path: .searchRecipe, method: .get(queryItems), headers: headers, modelType: RecipeResponse.self)
+        
+        do{
+            let recipes = try await httpClient.load(resource)
+            self.recipes = recipes.results
+            self.delegate?.refreshRecentCollectionView(recipes: self.recipes)
         } catch {
             self.delegate?.showError(error)
         }

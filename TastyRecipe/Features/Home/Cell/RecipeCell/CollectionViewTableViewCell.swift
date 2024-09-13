@@ -38,8 +38,10 @@ class CollectionViewTableViewCell: UITableViewCell {
         
         let height = 1170 / 200
         
-        layout.itemSize = CGSize(width: 780 / height, height: 225)
+        layout.itemSize = CGSize(width: 780 / height, height: 200)
         layout.minimumLineSpacing = 10
+        
+        collectionView.backgroundColor = .red
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(RecipeCollectionViewCell.self, forCellWithReuseIdentifier: RecipeCollectionViewCell.identifier)

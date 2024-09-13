@@ -23,70 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6E0ACD38-B8F8-4EB9-8189-CA5B1119921F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TastyRecipe/Features/Search/SearchVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
-            landmarkName = "didTapReturnSearch(with:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6E0ACD38-B8F8-4EB9-8189-CA5B1119921F - 202527623ea2ebeb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TastyRecipe.SearchVC.didTapReturnSearch(with: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "TastyRecipe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/metehangurgentepe/swiftProjects/TastyRecipe/TastyRecipe/Features/Search/SearchVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "347"
-                  endingLineNumber = "347"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  uuid = "6E0ACD38-B8F8-4EB9-8189-CA5B1119921F - 202527623ea2ebca"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TastyRecipe.SearchVC.didTapReturnSearch(with: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "TastyRecipe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/metehangurgentepe/swiftProjects/TastyRecipe/TastyRecipe/Features/Search/SearchVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "348"
-                  endingLineNumber = "348"
-                  offsetFromSymbolStart = "56">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E215C372-270D-4BE4-91CF-CA077F1C7957"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TastyRecipe/Features/Home/HomeVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "didTapReturnSearch(with:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7D165BB2-FB75-420E-A477-D07BDC34F6B0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -98,6 +34,22 @@
             endingLineNumber = "65"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61BA28FE-C70B-47B5-A81F-E10D13D61ADE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TastyRecipe/Features/Search/SearchVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
