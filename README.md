@@ -16,14 +16,14 @@ Tasty Recipe is a clone of the popular Tasty app, providing users with a variety
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.03.png" width="200" height="300"/>
-<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.08.png" width="200" height="300"/>
-<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.19.png" width="200" height="300"/>
-<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.30.png" width="200" height="300"/>
-<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.33.png" width="200" height="300"/>
-<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.48.png" width="200" height="300"/>
-<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.40.png" width="200" height="300"/>
-<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.38.00.png" width="200" height="300"/>
+<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.03.png" width="200" />
+<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.08.png" width="200" />
+<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.19.png" width="200" />
+<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.30.png" width="200" />
+<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.33.png" width="200" />
+<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.48.png" width="200" />
+<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.40.png" width="200" />
+<img src="https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.38.00.png" width="200" />
 
 
 
