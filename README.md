@@ -12,12 +12,20 @@ Tasty Recipe is a clone of the popular Tasty app, providing users with a variety
  
  ## Screenshots
 
-![Screenshot 1](path/to/screenshot1.png)
-![Screenshot 2](path/to/screenshot2.png)
+![Screenshot 1]((https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.03.png))
+![Screenshot 2](https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.08.png)
+![Screenshot 3](https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.19.png)
+![Screenshot 4](https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.30.png)
+![Screenshot 5](https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.33.png)
+![Screenshot 6](https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.48.png)
+![Screenshot 7](https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.37.40.png)
+![Screenshot 8](https://raw.githubusercontent.com/metehangurgentepe/Recipy/refs/heads/main/Screenshot/Simulator%20Screenshot%20-%20iPhone%2011%20Pro%20-%202024-09-21%20at%2011.38.00.png)
+
+
 
 ## Video Demo
 
-[Watch the demo video here](path/to/demo-video.mp4)
+[Watch the demo video here]((https://www.youtube.com/watch?v=9BC9CtH4kLo))
 
 ## Installation
 
